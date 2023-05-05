@@ -28,10 +28,10 @@ def csvToical(input_file, output_file):
             event = Event()
             for index, items in enumerate(row):
                 user = items.split(';')
-                event.add('summary', user[6].strip())
+                event.add('summary', str(user[6].strip()).encode('utf-8'))
                 event.add('dtstart', datetime.strptime(user[1], '%d.%m.%Y'))
                 event.add('dtend',   (datetime.strptime(user[3], '%d.%m.%Y')   + timedelta(days=1)).date())
-                event.add('description', user[6].strip())
+                event.add('description', str(user[6].strip()).encode('utf-8'))
                 event.add('location', 'Ukraine') 
                 event.add('transp', 'TRANSPARENT')
                 event.add('dtstamp', datetime.replace( datetime.now(), tzinfo=LocalTimezone() ))
