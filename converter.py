@@ -41,10 +41,9 @@ def csvToical(input_file, output_file):
             out_f.write(cal.to_ical())
             out_f.close()
 
-
 def main(args):
   csvToical(args.input, args.output)
-
+  
 if __name__ == "__main__":
   main(parser.parse_args())
 
