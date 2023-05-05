@@ -26,8 +26,8 @@ def csvToical(input_file, output_file):
                 
         for row in csv_data:
             event = Event()
-            for index, city in enumerate(row):
-                user = city.split(';')
+            for index, items in enumerate(row):
+                user = items.split(';')
                 event.add('summary', user[6].strip())
                 event.add('dtstart', datetime.strptime(user[1], '%d.%m.%Y'))
                 event.add('dtend',   (datetime.strptime(user[3], '%d.%m.%Y')   + timedelta(days=1)).date())
